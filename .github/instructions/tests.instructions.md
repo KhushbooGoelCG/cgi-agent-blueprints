@@ -1,15 +1,17 @@
 ---
-applyTo: ["tests/Banking.Application.Tests/**", "tests/Banking.Api.Tests/**"]
+description: 'Guidelines for building xUnit tests'
+
+applyTo: ["tests/*.Application.Tests/**", "tests/*.Api.Tests/**"]
 ---
 
-# Banking Test Projects — Copilot Instructions
+# Test Projects — Copilot Instructions
 
 ## Project Overview
 
-This document provides guidelines for test projects in the Banking solution:
+This document provides guidelines for test projects in the solution:
 
-- **Banking.Application.Tests** — Unit tests for services and repositories
-- **Banking.Api.Tests** — Unit tests for API controllers
+- **`<ProjectName>.Application.Tests`** — Unit tests for services and repositories
+- **`<ProjectName>.Api.Tests`** — Unit tests for API controllers
 
 Both projects target **.NET 10** and use **xUnit** as the testing framework with **Moq** for mocking.
 
@@ -19,13 +21,13 @@ Both projects target **.NET 10** and use **xUnit** as the testing framework with
 
 ```
 tests/
-├── Banking.Api.Tests/              # Unit tests for Banking.Api
-│   └── Controllers/                # Controller tests
+├── <ProjectName>.Api.Tests/              # Unit tests for <ProjectName>.Api
+│   └── Controllers/                      # Controller tests
 │       └── [Entity]ControllerTests.cs
-├── Banking.Application.Tests/      # Unit tests for Banking.Application
-│   ├── Services/                   # Service tests
+├── <ProjectName>.Application.Tests/      # Unit tests for <ProjectName>.Application
+│   ├── Services/                         # Service tests
 │   │   └── [Entity]ServiceTests.cs
-│   └── Repositories/               # Repository tests (if needed)
+│   └── Repositories/                     # Repository tests (if needed)
 │       └── [Entity]RepositoryTests.cs
 ```
 
@@ -87,12 +89,12 @@ public async Task MethodName_Scenario_ExpectedBehavior()
 
 ---
 
-## Banking.Application.Tests Guidelines
+## `<ProjectName>.Application.Tests` Guidelines
 
 ### Service Test Structure
 
 ```csharp
-namespace Banking.Application.Tests.Services;
+namespace <ProjectName>.Application.Tests.Services;
 
 public class [Entity]ServiceTests
 {
@@ -207,12 +209,12 @@ public async Task CreateAsync_MapsToEntityAddsAndReturnsMappedDto()
 
 ---
 
-## Banking.Api.Tests Guidelines
+## `<ProjectName>.Api.Tests` Guidelines
 
 ### Controller Test Structure
 
 ```csharp
-namespace Banking.Api.Tests.Controllers;
+namespace <ProjectName>.Api.Tests.Controllers;
 
 public class [Entity]sControllerTests
 {

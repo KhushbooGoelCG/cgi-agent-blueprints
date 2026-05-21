@@ -1,5 +1,6 @@
 ---
-applyTo: "src/banking-app/**"
+description: 'Guidelines for building react+typescript web applications'
+applyTo: "src/*-app/**"
 ---
 
 # Project Instructions: React + Vite + TypeScript

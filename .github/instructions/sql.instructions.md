@@ -1,26 +1,20 @@
 ---
-applyTo: "db/Banking.SqlDb/**"
+description: 'Guidelines for sql database .net project'
+applyTo: "src/*.SqlDb/**"
 ---
 
-# **GitHub Copilot Instructions for `Banking.SqlDb.sqlproj`**
+# **GitHub Copilot Instructions for `<ProjectName>.SqlDb.sqlproj`**
 
 ## **Purpose**
 
-This document instructs GitHub Copilot on how to generate, maintain, and enhance SQL code within the **Banking SQL Database Project** (`Banking.SqlDb.sqlproj`) in Visual Studio.  
+This document instructs GitHub Copilot on how to generate, maintain, and enhance SQL code within the **SQL Database Project** (`<ProjectName>.SqlDb.sqlproj`) in Visual Studio.  
 Copilot should follow the standards, conventions, and architecture defined below when suggesting or completing code.
 
 ***
 
 ## **Project Overview**
 
-`Banking.SqlDb.sqlproj` is a SQL Server Database Project containing schema objects that support the Banking platform, including:
-
-*   Table
-*   View
-*   Stored Procedure
-*   Function
-*   Security (roles, permissions)
-*   Reference/Lookup Data
+`<ProjectName>.SqlDb.sqlproj` is a SQL Server Database Project containing schema objects that support the application platform, including tables, views, stored procedures, functions, security objects, and reference/lookup data.
 
 Build output must remain compatible with **SQL Server Data Tools (SSDT)** and Visual Studio database publishing.
 
@@ -114,13 +108,7 @@ Unless business rules specify otherwise.
 
 ***
 
-### **5. Banking Domain Rules**
-
-Copilot should understand that Banking data typically includes:
-
-*   Customer
-*   Contact
-
+### **5. Domain Rules**
 
 For new tables, include:
 
@@ -134,9 +122,9 @@ IsActive BIT NOT NULL DEFAULT 1
 
 ***
 
-### **6.Project Integration (Banking.SqlDb.sqlproj)**
+### **6. Project Integration (`<ProjectName>.SqlDb.sqlproj`)**
 
-####   When adding a new database object, ensure it is registered in the Banking.SqlDb.sqlproj file.
+####   When adding a new database object, ensure it is registered in the `<ProjectName>.SqlDb.sqlproj` file.
 
 *   File Registration: Every .sql file must have a corresponding <Build Include="..." /> entry within an <ItemGroup> in the project file.
 
@@ -159,7 +147,7 @@ Copilot must ensure generated code:
 
 # **How Copilot Should Behave in This Repo**
 
-✔ Generate high‑quality SQL adhering to Banking conventions  
+✔ Generate high‑quality SQL adhering to project conventions  
 ✔ Maintain schema consistency  
 ✔ Suggest performance‑optimized queries  
 ✔ Avoid anti‑patterns  
