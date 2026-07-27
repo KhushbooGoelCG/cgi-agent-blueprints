@@ -299,6 +299,8 @@ no_implicit_optional = true
 - Return typed response models for public APIs
 
 ```python
+from typing import Annotated, Protocol
+
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel
 
@@ -308,9 +310,20 @@ router = APIRouter()
 class HealthResponse(BaseModel):
     status: str
 
+class HealthService(Protocol):
+    async def ping(self) -> None: ...
+
+class DefaultHealthService:
+    async def ping(self) -> None:
+        return None
+
+def get_health_service() -> HealthService:
+    return DefaultHealthService()
 
 @router.get("/health", response_model=HealthResponse)
-async def get_health(service=Depends(...)) -> HealthResponse:
+async def get_health(
+    service: Annotated[HealthService, Depends(get_health_service)],
+) -> HealthResponse:
     await service.ping()
     return HealthResponse(status="ok")
 ```
